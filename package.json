@@ -1,0 +1,12 @@
+{
+  "name": "com.unity.connection",
+  "version": "1.0.0",
+  "displayName": "Unity Connection",
+  "description": "This state machine handles connection through the NetworkManager.",
+  "unity": "2020.3",
+"documentationUrl": "https://docs-multiplayer.unity3d.com",
+  "changelogUrl": "https://github.com/Unity-Technologies/com.unity.multiplayer.samples.coop/releases",
+  "license": "Unity Companion License",
+"keywords": [ "GameDev", "Networking", "Unity", "MultiPlayer" ],
+  "dependencies": {}
+}
