@@ -64,7 +64,7 @@ namespace Unity.Connection.State
         //--------------------------------------------------------------------------------------
         public override void OnUserRequestedShutdown()
         {
-            string reason = JsonUtility.ToJson(ConnectStatus.HostEndedSession);
+            string reason = JsonUtility.ToJson(ConnectionStatusType.HOSTENDEDSESSION);
 
             for (int i = Connection.NetworkManager.ConnectedClientsIds.Count - 1; i >= 0; i--)
             {
@@ -116,7 +116,7 @@ namespace Unity.Connection.State
             var connection_payload = JsonUtility.FromJson<ConnectionPayload>(payload);
             var game_return_status = GetConnectStatus(connection_payload);
 
-            if (game_return_status == ConnectStatus.Success)
+            if (game_return_status == ConnectionStatusType.SUCCESS)
             {
                 // connection approval will create a player object for you
                 response.Approved = true;
@@ -136,21 +136,21 @@ namespace Unity.Connection.State
         }
 
         //--------------------------------------------------------------------------------------
-        ConnectStatus GetConnectStatus(ConnectionPayload connectionPayload)
+        ConnectionStatusType GetConnectStatus(ConnectionPayload connectionPayload)
         {
             if (Connection.NetworkManager.ConnectedClientsIds.Count >= Connection.MaxConnectedPlayers)
             {
-                return ConnectStatus.ServerFull;
+                return ConnectionStatusType.SERVERFULL;
             }
 
             if (connectionPayload.is_debug != Debug.isDebugBuild)
             {
-                return ConnectStatus.IncompatibleBuildType;
+                return ConnectionStatusType.INCOMPATIBLEBUILDTYPE;
             }
 
             return Connection.SessionServiceFacade.IsDuplicateConnection(connectionPayload.player_id)
-                ? ConnectStatus.LoggedInAgain
-                : ConnectStatus.Success;
+                ? ConnectionStatusType.LOGGEDINAGAIN
+                : ConnectionStatusType.SUCCESS;
         }
     }
 }
