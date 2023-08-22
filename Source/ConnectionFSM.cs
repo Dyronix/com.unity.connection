@@ -16,12 +16,12 @@ namespace Unity.Connection
         public class ClientConnectedToHostUnityEvent : UnityEvent<ConnectionStatusType, ulong> { };
         public class ClientDisconnectedFromHostUnityEvent : UnityEvent<ConnectionStatusType, ulong> { };
 
-        public ConnectionStateChangedUnityEvent OnConnectionStateChanged;
-        public ConnectionStatusChangedUnityEvent OnConnectionStatusChanged;
-        public ConnectionApprovedUnityEvent OnConnectionApproved;
-        public ConnectionDisapprovedUnityEvent OnConnectionDisapproved;
-        public ClientConnectedToHostUnityEvent OnClientConnectedToHost;
-        public ClientDisconnectedFromHostUnityEvent OnClientDisconnectedFromHost;
+        public readonly ConnectionStateChangedUnityEvent OnConnectionStateChanged = new ConnectionStateChangedUnityEvent();
+        public readonly ConnectionStatusChangedUnityEvent OnConnectionStatusChanged = new ConnectionStatusChangedUnityEvent();
+        public readonly ConnectionApprovedUnityEvent OnConnectionApproved = new ConnectionApprovedUnityEvent();
+        public readonly ConnectionDisapprovedUnityEvent OnConnectionDisapproved = new ConnectionDisapprovedUnityEvent();
+        public readonly ClientConnectedToHostUnityEvent OnClientConnectedToHost = new ClientConnectedToHostUnityEvent();
+        public readonly ClientDisconnectedFromHostUnityEvent OnClientDisconnectedFromHost = new ClientDisconnectedFromHostUnityEvent();
 
         //--------------------------------------------------------------------------------------
         // Fields

@@ -34,9 +34,9 @@ namespace Unity.Connection.State
         public class ClientConnectedUnityEvent : UnityEvent<ConnectionStatusType, ulong> { };
         public class ClientDisconnectedUnityEvent : UnityEvent<ConnectionStatusType, ulong> { };
 
-        public ConnectionStatusChangedUnityEvent OnConnectionStatusChanged;
-        public ClientConnectedUnityEvent OnClientConnectedToHost;
-        public ClientDisconnectedUnityEvent OnClientDisconnectedFromHost;
+        public readonly ConnectionStatusChangedUnityEvent OnConnectionStatusChanged = new ConnectionStatusChangedUnityEvent();
+        public readonly ClientConnectedUnityEvent OnClientConnectedToHost = new ClientConnectedUnityEvent();
+        public readonly ClientDisconnectedUnityEvent OnClientDisconnectedFromHost = new ClientDisconnectedUnityEvent();
 
         //--------------------------------------------------------------------------------------
         // Properties

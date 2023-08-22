@@ -17,10 +17,10 @@ namespace Unity.Connection.Method
         public class HostConnectionCompleted : UnityEvent<Allocation> { }
         public class HostConnectionFailed : UnityEvent { }
 
-        public ClientConnectionCompleted OnClientConnectionCompleted;
-        public ClientConnectionFailed OnClientConnectionFailed;
-        public HostConnectionCompleted OnHostConnectionCompleted;
-        public HostConnectionFailed OnHostConnectionFailed;
+        public readonly ClientConnectionCompleted OnClientConnectionCompleted = new ClientConnectionCompleted();
+        public readonly ClientConnectionFailed OnClientConnectionFailed = new ClientConnectionFailed();
+        public readonly HostConnectionCompleted OnHostConnectionCompleted = new HostConnectionCompleted();
+        public readonly HostConnectionFailed OnHostConnectionFailed = new HostConnectionFailed();
 
         //--------------------------------------------------------------------------------------
         public ConnectionMethodRelay(Connection connection, string playerName)
