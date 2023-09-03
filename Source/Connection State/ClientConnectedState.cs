@@ -28,6 +28,15 @@ namespace Unity.Connection.State
         }
 
         //--------------------------------------------------------------------------------------
+        public override void OnClientConnected(ulong clientId)
+        {
+            ConnectionStatusType status_type = ConnectionStatusType.SUCCESS;
+
+            OnClientConnectedToHost?.Invoke(status_type, clientId);
+            OnConnectionStatusChanged?.Invoke(status_type);
+        }
+
+        //--------------------------------------------------------------------------------------
         public override void OnClientDisconnect(ulong clientId)
         {
             string disconnect_reason = Connection.NetworkManager.DisconnectReason;
