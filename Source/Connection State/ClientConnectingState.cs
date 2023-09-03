@@ -32,8 +32,8 @@ namespace Unity.Connection.State
         //--------------------------------------------------------------------------------------
         public override void OnClientConnected(ulong _)
         {
-            Connection.ChangeConnectionState(new ClientConnectedState(Connection));
             OnConnectionStatusChanged?.Invoke(ConnectionStatusType.SUCCESS);
+            Connection.ChangeConnectionState(new ClientConnectedState(Connection));
         }
 
         //--------------------------------------------------------------------------------------
