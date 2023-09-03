@@ -1,6 +1,6 @@
 {
   "name": "com.unity.connection",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "displayName": "Unity Connection",
   "description": "This state machine handles connection through the NetworkManager.",
   "unity": "2020.3",
