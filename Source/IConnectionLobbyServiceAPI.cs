@@ -16,6 +16,5 @@ namespace Unity.Connection
         Task<(bool Success, Lobby Lobby)> UpdatePlayerRelayInfo(string allocationId, string relayCode);
 
         Task KickPlayer(string playerId);
-        Task DeleteLobby();
     }
 }

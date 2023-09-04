@@ -20,8 +20,6 @@ namespace Unity.Connection.State
         //--------------------------------------------------------------------------------------
         public override void Enter()
         {
-            DeleteLobby();
-
             Connection.LobbyServiceFacade.StopTrackingActiveLobby();
 
             Connection.NetworkManager.Shutdown();
@@ -45,12 +43,6 @@ namespace Unity.Connection.State
         {
             var connection_method = new ConnectionMethodRelay(Connection, playerName);
             Connection.ChangeConnectionState(new StartingHostState(Connection, connection_method));
-        }
-
-        //--------------------------------------------------------------------------------------
-        private async void DeleteLobby()
-        {
-            await Connection.LobbyServiceFacade.DeleteLobby();
         }
     }
 }
